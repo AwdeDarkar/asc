@@ -1,0 +1,139 @@
+.. _asc000:
+
+AWDE Standards Core Standard
+====================================================================================================
+
+:ASC: 0
+:Status: Proposed
+:Created: 2018-11-09
+:Version: 0
+:Authors:
+         - Darkar
+
+----------------------------------------------------------------------------------------------------
+
+.. contents:: Table of Contents
+
+Introduction
+----------------------------------------------------------------------------------------------------
+
+This is the ASC which describes the standards system itself, including the layout and techical
+specifications for ASC documents and the process for updating old ASCs or integrating new ones into
+the standard.
+
+Motivation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+We want to keep things organized and standardized with the ASC system so it only makes sense to
+apply this reasoning to the ASC system itself.
+
+Epistemic Status
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+We are very sure that is should become an accepted standard, but right now the exact details of the
+standard itself are uncertain. We have not spent more than one day working on this system yet.
+
+Definitions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ASC
+    AWDE Standards Core (pronounced 'ask'), see `ASC 0 <asc000.html>`_
+
+RST
+    reStructuredText, see `reStructuredText <http://docutils.sourceforge.net/rst.html>`_
+
+Definition imports
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  - `RFC 2119 <https://www.ietf.org/rfc/rfc2119.txt>`_
+
+Organization
+----------------------------------------------------------------------------------------------------
+ASCs are living documents, their small userbase makes it easier to change them more frequently than
+other, similar systems. ASCs are stored on their github repository and mirrored on the awdefy site.
+
+Updates
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Github will be used to control access to updating or creating new ASCs. Those with developer or
+above access to the repository can update or create ASCs any time they choose and the github issues
+system can be used to comment on or suggest updates to ASCs. This system is prefered over Slack or
+other forms of communication as it is more persistent and a better format for this sort of
+discussion.
+
+Status
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Each ASC has a status which describes its place in the AWDE organization.
+
+Proposed
+    New ASCs must start in the proposed status. These are not 'official' standards but instead need
+    extended testing or discussion before advancing.
+
+Rejected
+    If a proposed ASC is found to have fundamental flaws which cannot be fixed with simple updates,
+    it is rejected. Rejected ASCs should have a section titled 'Rejection' which describes the
+    reasons why the ASC could not be made an accepted standard.
+
+Accepted
+    If AWDE decides to accept an ASC it becomes official standard and all behavior under its domain
+    is expected to comply. The exact method for moving an ASC from 'proposed' to 'accepted' is
+    undetermined.
+
+Obselete
+    When a new ASC with substantially different form or behavior is accepted that supercedes another,
+    that ASC should be moved to the 'obselete' status and given a section titled 'Obselete' that
+    links to the new ASC and provides a brief description of the reasons for accepting the new ASC
+    over the old one.
+
+Documents
+----------------------------------------------------------------------------------------------------
+ASCs are documented in RST which must be compatible with the `Sphinx
+<http://www.sphinx-doc.org/en/master/>`_ documentation generation system.
+Further constraints:
+
+  - Line length in the source RST must not be longer than 100 characters
+
+  - Headers should be denoted with a character repeated 100 times underneath the string that denotes
+    the header
+
+  - The character '=' must be used to denote titles and should only be used once per document.
+    '-' must denote sections, '^' denote subsections, and '"' denote sub-subsections. ASCs should
+    not need to go any deeper than that
+
+  - Space-indents should be used with 4 spaces per level of indentation. Bulleted Lists should have
+    two spaces, then the bullet character, then another space before the list item itself
+
+Layout
+----------------------------------------------------------------------------------------------------
+Every ASC is different and different layouts may be most effective at communicating whatever a
+particular standard is trying to achieve. However, the `Introduction`_ section should be generally
+standard to help with organization.
+
+Introduction
+    Immediately under the 'Introduction' section should contain a short, one-paragraph description
+    of what the standard does. This description ought to be enough for readers to very quickly
+    decide if that standard is what they are looking for.
+
+Motivation
+    This section should be written in the first-person plural tense and should describe the reasons
+    for creating the standard in the first place and a little more detail about what the standard
+    ought to accomplish.
+
+Epistemic Status
+    A standard may also contain another subsection written in the first-person plural which
+    describes the confidence level at which the author or authors put forward the standard and the
+    effort or steps they put into optimizing the work they present. This is particularly useful for
+    proposed standards that are not yet accepted.
+
+Definitions
+    The technical jargon or acronyms used in a document which are likely to be confusing or need
+    clarifying for some readers should be placed in a subsection of the introduction to define what
+    a given term means within the scope of the document. A 'definition imports' sub-subsection may
+    also be appended to this to include definitions from other documents, particularly RFCs or ASCs
+    to avoid repetition.
+
+Beyond this, ASCs should be organized to provide the most useful information first and be written
+with clarity in mind.
+
+Language
+----------------------------------------------------------------------------------------------------
+ASCs should be written in American English. As of this moment there is no style guide for ASCs but
+they should demonstrate correct grammer and spelling, they should be written in a formal tone which
+mimics the tone of RFCs, and aside from the 'epistemic status' and 'motivation' subsections should
+be written in third-person passive.
