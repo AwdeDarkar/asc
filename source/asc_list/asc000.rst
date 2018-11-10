@@ -6,11 +6,20 @@ AWDE Standards Core Standard
 :ASC: 0
 :Status: Proposed
 :Created: 2018-11-09
-:Version: 0
+:Updated: 2018-11-10
+:Version: 0.1
 :Authors:
          - Darkar
+         - WildfireXIII
 
 ----------------------------------------------------------------------------------------------------
+
+Abstract
+----------------------------------------------------------------------------------------------------
+
+This document specifies the standards and conventions to utilize when writing and publishing an ASC.
+This specification includes layout, organization, language style, technical requirements, and the
+philosophy of this proposed system.
 
 .. contents:: Table of Contents
 
@@ -137,3 +146,5 @@ ASCs should be written in American English. As of this moment there is no style 
 they should demonstrate correct grammer and spelling, they should be written in a formal tone which
 mimics the tone of RFCs, and aside from the 'epistemic status' and 'motivation' subsections should
 be written in third-person passive.
+
+.. vim: set tw=100 ts=4 sw=4 sts=4 et:
