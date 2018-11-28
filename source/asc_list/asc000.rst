@@ -7,7 +7,7 @@ AWDE Standards Core Standard
 :ASC: 0
 :Status: Proposed
 :Created: 2018-11-09
-:Updated: 2018-11-11
+:Updated: 2018-11-28
 :Version: 0.2
 :Authors:
          - Darkar
