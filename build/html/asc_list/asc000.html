@@ -48,59 +48,81 @@
 <tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body"><p class="first">2018-11-09</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body"><p class="first">0</p>
+<tr class="field-even field"><th class="field-name">Updated:</th><td class="field-body"><p class="first">2018-11-10</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Authors:</th><td class="field-body"><ul class="first last simple">
+<tr class="field-odd field"><th class="field-name">Version:</th><td class="field-body"><p class="first">0.1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Authors:</th><td class="field-body"><ul class="first last simple">
 <li>Darkar</li>
+<li>WildfireXIII</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <hr class="docutils" />
+<div class="section" id="abstract">
+<h2><a class="toc-backref" href="#id2">Abstract</a><a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<p>This document specifies the standards and conventions to utilize when writing and publishing an ASC.
+This specification includes layout, organization, language style, technical requirements, and the
+philosophy of this proposed system.</p>
 <div class="contents topic" id="table-of-contents">
 <p class="topic-title first">Table of Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#awde-standards-core-standard" id="id1">AWDE Standards Core Standard</a><ul>
-<li><a class="reference internal" href="#introduction" id="id2">Introduction</a><ul>
-<li><a class="reference internal" href="#motivation" id="id3">Motivation</a></li>
-<li><a class="reference internal" href="#epistemic-status" id="id4">Epistemic Status</a></li>
-<li><a class="reference internal" href="#definitions" id="id5">Definitions</a><ul>
-<li><a class="reference internal" href="#definition-imports" id="id6">Definition imports</a></li>
+<li><a class="reference internal" href="#abstract" id="id2">Abstract</a></li>
+<li><a class="reference internal" href="#introduction" id="id3">Introduction</a><ul>
+<li><a class="reference internal" href="#motivation" id="id4">Motivation</a></li>
+<li><a class="reference internal" href="#epistemic-status" id="id5">Epistemic Status</a></li>
+<li><a class="reference internal" href="#definitions" id="id6">Definitions</a><ul>
+<li><a class="reference internal" href="#definition-imports" id="id7">Definition imports</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#organization" id="id7">Organization</a><ul>
-<li><a class="reference internal" href="#updates" id="id8">Updates</a></li>
-<li><a class="reference internal" href="#status" id="id9">Status</a></li>
+<li><a class="reference internal" href="#organization" id="id8">Organization</a><ul>
+<li><a class="reference internal" href="#updates" id="id9">Updates</a></li>
+<li><a class="reference internal" href="#status" id="id10">Status</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#documents" id="id10">Documents</a></li>
-<li><a class="reference internal" href="#layout" id="id11">Layout</a></li>
-<li><a class="reference internal" href="#language" id="id12">Language</a></li>
+<li><a class="reference internal" href="#documents" id="id11">Documents</a></li>
+<li><a class="reference internal" href="#layout" id="id12">Layout</a></li>
+<li><a class="reference internal" href="#language" id="id13">Language</a></li>
 </ul>
 </li>
 </ul>
+</div>
 </div>
 <div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id2">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>This is the ASC which describes the standards system itself, including the layout and techical
-specifications for ASC documents and the process for updating old ASCs or integrating new ones into
-the standard.</p>
+<h2><a class="toc-backref" href="#id3">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Throughout AWDE’s history, the start of every new project has involved, to varying degrees,
+designing systems of planning for that particular project or simply not using a planning system at
+all. This lack of convention and wasted overhead in determining a planning system on the fly has led
+to multiple issues. In most every project, it has largely been unclear to what extent plans need
+actually be made, in both length, content, and organization. This has, in most cases, led to
+insufficient, irrelevant, or even inconsistent planning documentation.</p>
+<p>However, there have still been commonalities throughout most of these projects - the recognition of
+needing a sufficient set of plans, standards, protocols, and documentation to begin with, as well as
+some specific aspects such as code syntax conventions, a brainstorming or dump document, etc.</p>
+<p>The goal and philosophy then of the AWDE Standards Core is to provide a collection of precisely
+defined and well documented protocols, conventions, and system specifications to be utilized in
+future work, in order to have more consistent/less ambiguous approaches to projects.</p>
 <div class="section" id="motivation">
-<h3><a class="toc-backref" href="#id3">Motivation</a><a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
-<p>We want to keep things organized and standardized with the ASC system so it only makes sense to
-apply this reasoning to the ASC system itself.</p>
+<h3><a class="toc-backref" href="#id4">Motivation</a><a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
+<p>In keeping with the spirit of the ASC philosophy, there should exist a standard that defines how to
+approach defining future standards and protocols within the ASC system itself, and a defined
+protocol for the creation, review, and revisement of documents, up to the eventual acceptance into
+or rejection from the ASC.</p>
 </div>
 <div class="section" id="epistemic-status">
-<h3><a class="toc-backref" href="#id4">Epistemic Status</a><a class="headerlink" href="#epistemic-status" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5">Epistemic Status</a><a class="headerlink" href="#epistemic-status" title="Permalink to this headline">¶</a></h3>
 <p>We are very sure that is should become an accepted standard, but right now the exact details of the
 standard itself are uncertain. We have not spent more than one day working on this system yet.</p>
 </div>
 <div class="section" id="definitions">
-<h3><a class="toc-backref" href="#id5">Definitions</a><a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id6">Definitions</a><a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
 <dt>ASC</dt>
 <dd>AWDE Standards Core (pronounced ‘ask’), see <a class="reference external" href="asc000.html">ASC 0</a></dd>
@@ -108,7 +130,7 @@ standard itself are uncertain. We have not spent more than one day working on th
 <dd>reStructuredText, see <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a></dd>
 </dl>
 <div class="section" id="definition-imports">
-<h4><a class="toc-backref" href="#id6">Definition imports</a><a class="headerlink" href="#definition-imports" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id7">Definition imports</a><a class="headerlink" href="#definition-imports" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><ul class="simple">
 <li><a class="reference external" href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a></li>
@@ -118,11 +140,11 @@ standard itself are uncertain. We have not spent more than one day working on th
 </div>
 </div>
 <div class="section" id="organization">
-<h2><a class="toc-backref" href="#id7">Organization</a><a class="headerlink" href="#organization" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Organization</a><a class="headerlink" href="#organization" title="Permalink to this headline">¶</a></h2>
 <p>ASCs are living documents, their small userbase makes it easier to change them more frequently than
 other, similar systems. ASCs are stored on their github repository and mirrored on the awdefy site.</p>
 <div class="section" id="updates">
-<h3><a class="toc-backref" href="#id8">Updates</a><a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Updates</a><a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h3>
 <p>Github will be used to control access to updating or creating new ASCs. Those with developer or
 above access to the repository can update or create ASCs any time they choose and the github issues
 system can be used to comment on or suggest updates to ASCs. This system is prefered over Slack or
@@ -130,7 +152,7 @@ other forms of communication as it is more persistent and a better format for th
 discussion.</p>
 </div>
 <div class="section" id="status">
-<h3><a class="toc-backref" href="#id9">Status</a><a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Status</a><a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h3>
 <p>Each ASC has a status which describes its place in the AWDE organization.</p>
 <dl class="docutils">
 <dt>Proposed</dt>
@@ -153,7 +175,7 @@ over the old one.</dd>
 </div>
 </div>
 <div class="section" id="documents">
-<h2><a class="toc-backref" href="#id10">Documents</a><a class="headerlink" href="#documents" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Documents</a><a class="headerlink" href="#documents" title="Permalink to this headline">¶</a></h2>
 <p>ASCs are documented in RST which must be compatible with the <a class="reference external" href="http://www.sphinx-doc.org/en/master/">Sphinx</a> documentation generation system.
 Further constraints:</p>
 <blockquote>
@@ -170,7 +192,7 @@ two spaces, then the bullet character, then another space before the list item i
 </div></blockquote>
 </div>
 <div class="section" id="layout">
-<h2><a class="toc-backref" href="#id11">Layout</a><a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Layout</a><a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
 <p>Every ASC is different and different layouts may be most effective at communicating whatever a
 particular standard is trying to achieve. However, the <a class="reference internal" href="#introduction">Introduction</a> section should be generally
 standard to help with organization.</p>
@@ -199,7 +221,7 @@ to avoid repetition.</dd>
 with clarity in mind.</p>
 </div>
 <div class="section" id="language">
-<h2><a class="toc-backref" href="#id12">Language</a><a class="headerlink" href="#language" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Language</a><a class="headerlink" href="#language" title="Permalink to this headline">¶</a></h2>
 <p>ASCs should be written in American English. As of this moment there is no style guide for ASCs but
 they should demonstrate correct grammer and spelling, they should be written in a formal tone which
 mimics the tone of RFCs, and aside from the ‘epistemic status’ and ‘motivation’ subsections should

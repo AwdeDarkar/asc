@@ -6,25 +6,45 @@ AWDE Standards Core Standard
 :ASC: 0
 :Status: Proposed
 :Created: 2018-11-09
-:Version: 0
+:Updated: 2018-11-10
+:Version: 0.1
 :Authors:
          - Darkar
+         - WildfireXIII
 
 ----------------------------------------------------------------------------------------------------
+
+Abstract
+----------------------------------------------------------------------------------------------------
+This document specifies the standards and conventions to utilize when writing and publishing an ASC.
+This specification includes layout, organization, language style, technical requirements, and the
+philosophy of this proposed system.
 
 .. contents:: Table of Contents
 
 Introduction
 ----------------------------------------------------------------------------------------------------
+Throughout AWDE's history, the start of every new project has involved, to varying degrees,
+designing systems of planning for that particular project or simply not using a planning system at
+all. This lack of convention and wasted overhead in determining a planning system on the fly has led
+to multiple issues. In most every project, it has largely been unclear to what extent plans need
+actually be made, in both length, content, and organization. This has, in most cases, led to
+insufficient, irrelevant, or even inconsistent planning documentation. 
 
-This is the ASC which describes the standards system itself, including the layout and techical
-specifications for ASC documents and the process for updating old ASCs or integrating new ones into
-the standard.
+However, there have still been commonalities throughout most of these projects - the recognition of
+needing a sufficient set of plans, standards, protocols, and documentation to begin with, as well as
+some specific aspects such as code syntax conventions, a brainstorming or dump document, etc.
+
+The goal and philosophy then of the AWDE Standards Core is to provide a collection of precisely 
+defined and well documented protocols, conventions, and system specifications to be utilized in 
+future work, in order to have more consistent/less ambiguous approaches to projects.
 
 Motivation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-We want to keep things organized and standardized with the ASC system so it only makes sense to
-apply this reasoning to the ASC system itself.
+In keeping with the spirit of the ASC philosophy, there should exist a standard that defines how to
+approach defining future standards and protocols within the ASC system itself, and a defined
+protocol for the creation, review, and revisement of documents, up to the eventual acceptance into 
+or rejection from the ASC.
 
 Epistemic Status
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -137,3 +157,5 @@ ASCs should be written in American English. As of this moment there is no style 
 they should demonstrate correct grammer and spelling, they should be written in a formal tone which
 mimics the tone of RFCs, and aside from the 'epistemic status' and 'motivation' subsections should
 be written in third-person passive.
+
+.. vim: set tw=100 ts=4 sw=4 sts=4 et:
