@@ -1,13 +1,14 @@
 .. _asc000:
 
+####################################################################################################
 AWDE Standards Core Standard
-====================================================================================================
+####################################################################################################
 
 :ASC: 0
 :Status: Proposed
 :Created: 2018-11-09
-:Updated: 2018-11-10
-:Version: 0.1
+:Updated: 2018-11-11
+:Version: 0.2
 :Authors:
          - Darkar
          - WildfireXIII
@@ -15,7 +16,7 @@ AWDE Standards Core Standard
 ----------------------------------------------------------------------------------------------------
 
 Abstract
-----------------------------------------------------------------------------------------------------
+====================================================================================================
 This document specifies the standards and conventions to utilize when writing and publishing an ASC.
 This specification includes layout, organization, language style, technical requirements, and the
 philosophy of this proposed system.
@@ -23,7 +24,7 @@ philosophy of this proposed system.
 .. contents:: Table of Contents
 
 Introduction
-----------------------------------------------------------------------------------------------------
+====================================================================================================
 Throughout AWDE's history, the start of every new project has involved, to varying degrees,
 designing systems of planning for that particular project or simply not using a planning system at
 all. This lack of convention and wasted overhead in determining a planning system on the fly has led
@@ -40,19 +41,19 @@ defined and well documented protocols, conventions, and system specifications to
 future work, in order to have more consistent/less ambiguous approaches to projects.
 
 Motivation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------------------------------------------------------------
 In keeping with the spirit of the ASC philosophy, there should exist a standard that defines how to
 approach defining future standards and protocols within the ASC system itself, and a defined
 protocol for the creation, review, and revisement of documents, up to the eventual acceptance into 
 or rejection from the ASC.
 
 Epistemic Status
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------------------------------------------------------------
 We are very sure that is should become an accepted standard, but right now the exact details of the
 standard itself are uncertain. We have not spent more than one day working on this system yet.
 
 Definitions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------------------------------------------------------------
 
 ASC
     AWDE Standards Core (pronounced 'ask'), see `ASC 0 <asc000.html>`_
@@ -61,16 +62,16 @@ RST
     reStructuredText, see `reStructuredText <http://docutils.sourceforge.net/rst.html>`_
 
 Definition imports
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   - `RFC 2119 <https://www.ietf.org/rfc/rfc2119.txt>`_
 
 Organization
-----------------------------------------------------------------------------------------------------
+====================================================================================================
 ASCs are living documents, their small userbase makes it easier to change them more frequently than
 other, similar systems. ASCs are stored on their github repository and mirrored on the awdefy site.
 
 Updates
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------------------------------------------------------------
 Github will be used to control access to updating or creating new ASCs. Those with developer or
 above access to the repository can update or create ASCs any time they choose and the github issues
 system can be used to comment on or suggest updates to ASCs. This system is prefered over Slack or
@@ -78,7 +79,7 @@ other forms of communication as it is more persistent and a better format for th
 discussion.
 
 Status
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------------------------------------------------------------
 Each ASC has a status which describes its place in the AWDE organization.
 
 Proposed
@@ -102,38 +103,47 @@ Obselete
     over the old one.
 
 Documents
-----------------------------------------------------------------------------------------------------
+====================================================================================================
 ASCs are documented in RST which must be compatible with the `Sphinx
 <http://www.sphinx-doc.org/en/master/>`_ documentation generation system.
 Further constraints:
 
   - Line length in the source RST must not be longer than 100 characters
 
+  - Titles consist of the character '=' repeated 100 times both above and below the title; this
+    must only occur once per document.
+
   - Headers should be denoted with a character repeated 100 times underneath the string that denotes
     the header
 
-  - The character '=' must be used to denote titles and should only be used once per document.
-    '-' must denote sections, '^' denote subsections, and '"' denote sub-subsections. ASCs should
-    not need to go any deeper than that
+  - The character '=' must be used to denote sections, '-' must denote subsections, and '^' denote
+    sub-subsections. ASCs should not need to go any deeper than that
 
   - Space-indents should be used with 4 spaces per level of indentation. Bulleted Lists should have
     two spaces, then the bullet character, then another space before the list item itself
 
 Layout
-----------------------------------------------------------------------------------------------------
+====================================================================================================
 Every ASC is different and different layouts may be most effective at communicating whatever a
-particular standard is trying to achieve. However, the `Introduction`_ section should be generally
-standard to help with organization.
+particular standard is trying to achieve. However, the `Introduction`_ and `Abstract`_ sections
+should be generally standard to help with organization.
+
+Abstract
+    This section is a short, one-paragraph description of what the standard does. This description
+    ought to be enough for readers to very quickly decide if that standard is what they are looking
+    for.
+
+Table of Contents
+    The Table of Contents should follow the abstract and may be autogenerated using RST directives.
 
 Introduction
-    Immediately under the 'Introduction' section should contain a short, one-paragraph description
-    of what the standard does. This description ought to be enough for readers to very quickly
-    decide if that standard is what they are looking for.
+    Immediately under the 'Introduction' section should contain a longer, more detailed description
+    of what the RST seeks to accomplish; it may be between three and five paragraphs in length.
 
 Motivation
-    This section should be written in the first-person plural tense and should describe the reasons
-    for creating the standard in the first place and a little more detail about what the standard
-    ought to accomplish.
+    This subsection should be written in the first-person plural tense and should describe the
+    reasons for creating the standard in the first place and a little more detail about what the
+    standard ought to accomplish.
 
 Epistemic Status
     A standard may also contain another subsection written in the first-person plural which
@@ -152,7 +162,7 @@ Beyond this, ASCs should be organized to provide the most useful information fir
 with clarity in mind.
 
 Language
-----------------------------------------------------------------------------------------------------
+====================================================================================================
 ASCs should be written in American English. As of this moment there is no style guide for ASCs but
 they should demonstrate correct grammer and spelling, they should be written in a formal tone which
 mimics the tone of RFCs, and aside from the 'epistemic status' and 'motivation' subsections should
