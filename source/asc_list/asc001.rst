@@ -1,0 +1,88 @@
+.. _asc001:
+
+====================================================================================================
+Strategy Tournament
+====================================================================================================
+
+:ASC: 1
+:Status: Proposed
+:Created: 2018-11-28
+:Updated: 2018-11-28
+:Version: 0.0
+:Authors:
+         - Darkar
+
+----------------------------------------------------------------------------------------------------
+
+Abstract
+====================================================================================================
+This document describes the set of rules and techniques to be used in creating and running an AWDE
+Strategy Tournament.
+
+.. contents:: Table of Contents
+
+Introductions
+====================================================================================================
+*"In preparing for battle I have always found that plans are useless, but planning is
+indispensable."*
+
+*-Dwight D. Eisenhower*
+
+There has been of late some interest in playing strategy games as a group within AWDE. However, since
+this is AWDE, it simply will not do to play strategy games. At least one level of recursion is
+required.
+
+This document proposes a model for a tournament of strategy games where the winner or winners of each
+game get points and at the end of the tournament whoever has the most points wins (a tie-breaking
+system may be implemented, but ties are unlikely). Additionally, games will include a prediction
+market which offer additional points for correct predictions.
+
+
+Motivation
+----------------------------------------------------------------------------------------------------
+We want to play strategy games and test out long-term strategies and other techniques, but with the
+amount of experimentation likely, especially considering the prediction market aspect, it is crucial
+to ensure the rules of the tournaments are as clear as possible.
+
+Epistemic Status
+----------------------------------------------------------------------------------------------------
+I, Darkar, have spent quite a lot of time thinking about this tournament; at least three weeks of
+consideration. I've consulted with others in AWDE to look for flaws (of which Greg found several)
+and specifically considered adversarial positions. However, this system has yet to be tested and no
+amount of thinking or preparation will be as informative as a single game. I expect significant
+updates after the first tournament is run and this will probably coincide with the 1.0 version.
+
+Definitions
+----------------------------------------------------------------------------------------------------
+
+Definition imports
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    - `RFC 2119 <https://www.ietf.org/rfc/rfc2119.txt>`_
+
+Games
+====================================================================================================
+One of the core features of a tournament is its pool of games: before a tournament commences, this
+pool must be created. For a game to be considered for the pool it
+
+  - Must be accessible and usable for all players; if the game costs money to play, each player must
+    own a copy. If the technical requirements are strenuous, each player's computer must be able to
+    run it in a multiplayer setting without difficulty (as judged by the players themselves).
+
+  - Must not have an expected duration longer than half the tournament's planned length.
+
+  - Should have either an in-game or explicitly defined house-ruled victory condition that allows for
+    more than one winner. Multipolar victories are an important part of the Strategy Games, so this
+    is a strong 'should'.
+
+  - Should have been tested explicitly in a 'dry-run' setting outside of the tournament's competitive
+    pressure to prevent unexpected problems and ensure all players are familiar with the mechanics.
+
+  - May be a pure or partial strategy game. The game does not even need to be explicitly a strategy
+    game if they players decide they want to include something else in their pool.
+
+Scoring
+====================================================================================================
+Points are scored by winning games; for each week of the tournament there are 
+
+At the end of the tournament, the player with the most points wins. Ties are unlikely but are
+settled TODO somehow? We need to design a tiebreaker...
