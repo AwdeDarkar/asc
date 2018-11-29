@@ -1,0 +1,289 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Strategy Tournament &#8212; ASC 0.1 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="AWDE Standards Core Standard" href="asc000.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="strategy-tournament">
+<span id="asc001"></span><h1><a class="toc-backref" href="#id1">Strategy Tournament</a><a class="headerlink" href="#strategy-tournament" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">ASC:</th><td class="field-body"><p class="first">1</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status:</th><td class="field-body"><p class="first">Proposed</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body"><p class="first">2018-11-28</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Updated:</th><td class="field-body"><p class="first">2018-11-29</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Version:</th><td class="field-body"><p class="first">0.0</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Authors:</th><td class="field-body"><ul class="first last simple">
+<li>Darkar</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<div class="section" id="abstract">
+<h2><a class="toc-backref" href="#id2">Abstract</a><a class="headerlink" href="#abstract" title="Permalink to this headline">¶</a></h2>
+<p>This document describes the set of rules and techniques to be used in creating and running an AWDE
+Strategy Tournament.</p>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#strategy-tournament" id="id1">Strategy Tournament</a><ul>
+<li><a class="reference internal" href="#abstract" id="id2">Abstract</a></li>
+<li><a class="reference internal" href="#introductions" id="id3">Introductions</a><ul>
+<li><a class="reference internal" href="#motivation" id="id4">Motivation</a></li>
+<li><a class="reference internal" href="#epistemic-status" id="id5">Epistemic Status</a></li>
+<li><a class="reference internal" href="#definitions" id="id6">Definitions</a><ul>
+<li><a class="reference internal" href="#definition-imports" id="id7">Definition imports</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#games" id="id8">Games</a></li>
+<li><a class="reference internal" href="#scoring" id="id9">Scoring</a></li>
+<li><a class="reference internal" href="#prediction-market" id="id10">Prediction Market</a><ul>
+<li><a class="reference internal" href="#auction" id="id11">Auction</a></li>
+<li><a class="reference internal" href="#market" id="id12">Market</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="introductions">
+<h2><a class="toc-backref" href="#id3">Introductions</a><a class="headerlink" href="#introductions" title="Permalink to this headline">¶</a></h2>
+<p><em>“In preparing for battle I have always found that plans are useless, but planning is
+indispensable.”</em></p>
+<p><em>-Dwight D. Eisenhower</em></p>
+<p>There has been of late some interest in playing strategy games as a group within AWDE. However, since
+this is AWDE, it will not do to simply play strategy games. At least one level of recursion is
+required.</p>
+<p>This document proposes a model for a tournament of strategy games where the winner or winners of each
+game get points and at the end of the tournament whoever has the most points wins. Additionally,
+games will include a prediction market which offer additional points for correct predictions.</p>
+<div class="section" id="motivation">
+<h3><a class="toc-backref" href="#id4">Motivation</a><a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h3>
+<p>We want to play strategy games and test out long-term strategies and other techniques, but with the
+amount of experimentation likely, especially considering the prediction market aspect, it is crucial
+to ensure the rules of the tournaments are as clear as possible.</p>
+</div>
+<div class="section" id="epistemic-status">
+<h3><a class="toc-backref" href="#id5">Epistemic Status</a><a class="headerlink" href="#epistemic-status" title="Permalink to this headline">¶</a></h3>
+<p>I, Darkar, have spent quite a lot of time thinking about this tournament; at least three weeks of
+consideration. I’ve consulted with others in AWDE to look for flaws (of which Greg found several)
+and specifically considered adversarial positions. However, this system has yet to be tested and no
+amount of thinking or preparation will be as informative as a single game. I expect significant
+updates after the first tournament is run and this will probably coincide with the 1.0 version.</p>
+</div>
+<div class="section" id="definitions">
+<h3><a class="toc-backref" href="#id6">Definitions</a><a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Vickrey auction</dt>
+<dd>A sealed-bid auction that encourages true preference bidding, see <a class="reference external" href="https://en.wikipedia.org/wiki/Vickrey_auction">Vickery auction</a></dd>
+</dl>
+<div class="section" id="definition-imports">
+<h4><a class="toc-backref" href="#id7">Definition imports</a><a class="headerlink" href="#definition-imports" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://www.ietf.org/rfc/rfc2119.txt">RFC 2119</a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="games">
+<h2><a class="toc-backref" href="#id8">Games</a><a class="headerlink" href="#games" title="Permalink to this headline">¶</a></h2>
+<p>One of the core features of a tournament is its pool of games: before a tournament commences, this
+pool must be created. For a game to be considered for the pool it</p>
+<blockquote>
+<div><ul class="simple">
+<li>Must be accessible and usable for all players; if the game costs money to play, each player must
+own a copy. If the technical requirements are strenuous, each player’s computer must be able to
+run it in a multiplayer setting without difficulty (as judged by the players themselves).</li>
+<li>Must not have an expected duration longer than half the tournament’s planned length.</li>
+<li>Should have either an in-game or explicitly defined house-ruled victory condition that allows for
+more than one winner. Multipolar victories are an important part of the Strategy Games, so this
+is a strong ‘should’.</li>
+<li>Should have been tested explicitly in a ‘dry-run’ setting outside of the tournament’s competitive
+pressure to prevent unexpected problems and ensure all players are familiar with the mechanics.</li>
+<li>May be a pure or partial strategy game. The game does not even need to be explicitly a strategy
+game if they players decide they want to include something else in their pool.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="scoring">
+<h2><a class="toc-backref" href="#id9">Scoring</a><a class="headerlink" href="#scoring" title="Permalink to this headline">¶</a></h2>
+<p>The number of points that can be earned by winning a single game is proportional to the number of
+weeks that game is expected to run (decided before the game begins) rounded up. If more than one
+player wins a game the points are split amongst the winners either evenly or according to a scoring
+rule that each winner consents to (default to even split if no rule can be agreed upon).</p>
+<p>If there is only a single winner then an additional single-victory bonus is added equal to 5% of the
+total points that would otherwise be split among individual players.</p>
+<p>The algorithm for calculating the number of points available per week is as follows:
+POINTS = NUMBER_OF_PLAYERS * OPTIONS_PER_PLAYER * 120</p>
+<p>Where the number of players is the number of players playing the game and the options per player is
+the number of options for sale for each player on the prediction market.</p>
+<p>There may be a need for tiebreakers and this is currently an unaddressed problem with this
+specification.</p>
+</div>
+<div class="section" id="prediction-market">
+<h2><a class="toc-backref" href="#id10">Prediction Market</a><a class="headerlink" href="#prediction-market" title="Permalink to this headline">¶</a></h2>
+<p>One of the central features of the AWDE Strategy Tournament is the prediction market, which rewards
+not only good play at the specific games in question but also good calibration about one’s own
+abilities compared to others. The way the market works is as follows:</p>
+<p>Each tournament has an OPTIONS_PER_PLAYER value that determines the number of options that are
+created at the start of a game for each player. At the end of the game, if a player gets a victory
+condition (either single or shared victory) then every one of their options pays out 100 points to
+the owners of that option.</p>
+<p>The intent of this is to have the value of the options as they are traded on an open market equal
+the probability of that player’s eventual victory as best understood by every player at the time.</p>
+<p>This allows winners to double down on their winnings if they are confident, allows losers to get
+points for guessing well, and allows the uncertain to hedge their bets. The market operates in two
+distinct phases: the pre-game <em>auction</em> and the game contemporary <em>market</em>.</p>
+<div class="section" id="auction">
+<h3><a class="toc-backref" href="#id11">Auction</a><a class="headerlink" href="#auction" title="Permalink to this headline">¶</a></h3>
+<p>Before a game begins, all of the options are created and auctioned off using a Vickery auction. If
+the OPTIONS_PER_PLAYER is greater than one then the options are auctioned on a cycle (so the same
+player’s options do not come up for auction more than once in a row). The average price each option
+sold for when the auction is finished is listed publicly, but the owners are not.</p>
+</div>
+<div class="section" id="market">
+<h3><a class="toc-backref" href="#id12">Market</a><a class="headerlink" href="#market" title="Permalink to this headline">¶</a></h3>
+<p>Once the game commences, the market begins. Every owner of an option will list the minimum price
+they would sell that option for (defaults to 100) and every player will list the maximum they would
+be willing to pay to purchase an option for each other player.</p>
+<p>Every interval (decided on a per-game basis; maybe a turn, maybe a day) the following algorithm is
+run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="n">option</span> <span class="nb">type</span><span class="p">:</span>
+    <span class="n">sellers</span> <span class="o">=</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">owners</span> <span class="n">of</span> <span class="n">this</span> <span class="n">option</span> <span class="nb">type</span> <span class="nb">sorted</span> <span class="n">by</span> <span class="n">price</span>
+    <span class="n">buyers</span> <span class="o">=</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">buyers</span> <span class="nb">sorted</span> <span class="n">by</span> <span class="n">price</span> <span class="k">for</span> <span class="n">this</span> <span class="n">option</span> <span class="nb">type</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="n">seller</span><span class="p">:</span>
+        <span class="n">check</span> <span class="n">the</span> <span class="n">highest</span> <span class="n">buyer</span> <span class="n">price</span><span class="p">,</span> <span class="k">if</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">above</span> <span class="n">the</span> <span class="n">seller</span><span class="s1">&#39;s price:</span>
+            <span class="n">the</span> <span class="n">seller</span> <span class="n">sells</span> <span class="n">the</span> <span class="n">option</span> <span class="n">to</span> <span class="n">the</span> <span class="n">buyer</span> <span class="n">at</span> <span class="n">the</span> <span class="n">mean</span> <span class="n">of</span> <span class="n">their</span> <span class="n">prices</span>
+            <span class="n">the</span> <span class="n">buyer</span> <span class="ow">is</span> <span class="n">removed</span> <span class="kn">from</span> <span class="nn">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">buyers</span>
+</pre></div>
+</div>
+<p>You can think of this algorithm as simply taking the two lists of prices, the buyers and the
+sellers, and starting with the most extreme possible trades and moving in to maximize the trade
+surplus of each exchange.</p>
+<p>The last price at which an option was bought is listed in the market for public visibility.</p>
+<p>In the future, it may be useful to include the ability to hold a ‘short’ position on an option (or,
+similarly, having ‘negative’ options that pay out only if that player does <em>not</em> get a victory).</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">ASC</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="asc000.html">AWDE Standards Core Standard</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Strategy Tournament</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="asc000.html" title="previous chapter">AWDE Standards Core Standard</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, AWDE.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/asc_list/asc001.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
