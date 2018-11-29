@@ -1,0 +1,154 @@
+.. _asc001:
+
+====================================================================================================
+Strategy Tournament
+====================================================================================================
+
+:ASC: 1
+:Status: Proposed
+:Created: 2018-11-28
+:Updated: 2018-11-29
+:Version: 0.0
+:Authors:
+         - Darkar
+
+----------------------------------------------------------------------------------------------------
+
+Abstract
+====================================================================================================
+This document describes the set of rules and techniques to be used in creating and running an AWDE
+Strategy Tournament.
+
+.. contents:: Table of Contents
+
+Introductions
+====================================================================================================
+*"In preparing for battle I have always found that plans are useless, but planning is
+indispensable."*
+
+*-Dwight D. Eisenhower*
+
+There has been of late some interest in playing strategy games as a group within AWDE. However, since
+this is AWDE, it will not do to simply play strategy games. At least one level of recursion is
+required.
+
+This document proposes a model for a tournament of strategy games where the winner or winners of each
+game get points and at the end of the tournament whoever has the most points wins. Additionally,
+games will include a prediction market which offer additional points for correct predictions.
+
+
+Motivation
+----------------------------------------------------------------------------------------------------
+We want to play strategy games and test out long-term strategies and other techniques, but with the
+amount of experimentation likely, especially considering the prediction market aspect, it is crucial
+to ensure the rules of the tournaments are as clear as possible.
+
+Epistemic Status
+----------------------------------------------------------------------------------------------------
+I, Darkar, have spent quite a lot of time thinking about this tournament; at least three weeks of
+consideration. I've consulted with others in AWDE to look for flaws (of which Greg found several)
+and specifically considered adversarial positions. However, this system has yet to be tested and no
+amount of thinking or preparation will be as informative as a single game. I expect significant
+updates after the first tournament is run and this will probably coincide with the 1.0 version.
+
+Definitions
+----------------------------------------------------------------------------------------------------
+
+Vickrey auction
+    A sealed-bid auction that encourages true preference bidding, see `Vickery auction
+    <https://en.wikipedia.org/wiki/Vickrey_auction>`_
+
+Definition imports
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    - `RFC 2119 <https://www.ietf.org/rfc/rfc2119.txt>`_
+
+Games
+====================================================================================================
+One of the core features of a tournament is its pool of games: before a tournament commences, this
+pool must be created. For a game to be considered for the pool it
+
+  - Must be accessible and usable for all players; if the game costs money to play, each player must
+    own a copy. If the technical requirements are strenuous, each player's computer must be able to
+    run it in a multiplayer setting without difficulty (as judged by the players themselves).
+
+  - Must not have an expected duration longer than half the tournament's planned length.
+
+  - Should have either an in-game or explicitly defined house-ruled victory condition that allows for
+    more than one winner. Multipolar victories are an important part of the Strategy Games, so this
+    is a strong 'should'.
+
+  - Should have been tested explicitly in a 'dry-run' setting outside of the tournament's competitive
+    pressure to prevent unexpected problems and ensure all players are familiar with the mechanics.
+
+  - May be a pure or partial strategy game. The game does not even need to be explicitly a strategy
+    game if they players decide they want to include something else in their pool.
+
+Scoring
+====================================================================================================
+The number of points that can be earned by winning a single game is proportional to the number of
+weeks that game is expected to run (decided before the game begins) rounded up. If more than one
+player wins a game the points are split amongst the winners either evenly or according to a scoring
+rule that each winner consents to (default to even split if no rule can be agreed upon).
+
+If there is only a single winner then an additional single-victory bonus is added equal to 5% of the
+total points that would otherwise be split among individual players.
+
+The algorithm for calculating the number of points available per week is as follows:
+POINTS = NUMBER_OF_PLAYERS * OPTIONS_PER_PLAYER * 120
+
+Where the number of players is the number of players playing the game and the options per player is
+the number of options for sale for each player on the prediction market.
+
+There may be a need for tiebreakers and this is currently an unaddressed problem with this
+specification.
+
+Prediction Market
+====================================================================================================
+One of the central features of the AWDE Strategy Tournament is the prediction market, which rewards
+not only good play at the specific games in question but also good calibration about one's own
+abilities compared to others. The way the market works is as follows:
+
+Each tournament has an OPTIONS_PER_PLAYER value that determines the number of options that are
+created at the start of a game for each player. At the end of the game, if a player gets a victory
+condition (either single or shared victory) then every one of their options pays out 100 points to
+the owners of that option.
+
+The intent of this is to have the value of the options as they are traded on an open market equal
+the probability of that player's eventual victory as best understood by every player at the time.
+
+This allows winners to double down on their winnings if they are confident, allows losers to get
+points for guessing well, and allows the uncertain to hedge their bets. The market operates in two
+distinct phases: the pre-game *auction* and the game contemporary *market*.
+
+Auction
+----------------------------------------------------------------------------------------------------
+Before a game begins, all of the options are created and auctioned off using a Vickery auction. If
+the OPTIONS_PER_PLAYER is greater than one then the options are auctioned on a cycle (so the same
+player's options do not come up for auction more than once in a row). The average price each option
+sold for when the auction is finished is listed publicly, but the owners are not.
+
+Market
+----------------------------------------------------------------------------------------------------
+Once the game commences, the market begins. Every owner of an option will list the minimum price
+they would sell that option for (defaults to 100) and every player will list the maximum they would
+be willing to pay to purchase an option for each other player.
+
+Every interval (decided on a per-game basis; maybe a turn, maybe a day) the following algorithm is
+run::
+
+    for each option type:
+        sellers = list of owners of this option type sorted by price
+        buyers = list of buyers sorted by price for this option type
+        for each seller:
+            check the highest buyer price, if it is above the seller's price:
+                the seller sells the option to the buyer at the mean of their prices
+                the buyer is removed from the list of buyers
+
+You can think of this algorithm as simply taking the two lists of prices, the buyers and the
+sellers, and starting with the most extreme possible trades and moving in to maximize the trade
+surplus of each exchange.
+
+The last price at which an option was bought is listed in the market for public visibility.
+
+In the future, it may be useful to include the ability to hold a 'short' position on an option (or,
+similarly, having 'negative' options that pay out only if that player does *not* get a victory).
