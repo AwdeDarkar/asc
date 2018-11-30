@@ -7,8 +7,8 @@ Strategy Tournament
 :ASC: 1
 :Status: Proposed
 :Created: 2018-11-28
-:Updated: 2018-11-29
-:Version: 0.0
+:Updated: 2018-11-30
+:Version: 0.0.1
 :Authors:
          - Darkar
 
@@ -57,6 +57,10 @@ Definitions
 Vickrey auction
     A sealed-bid auction that encourages true preference bidding, see `Vickery auction
     <https://en.wikipedia.org/wiki/Vickrey_auction>`_
+
+Prediction Market
+    A market to predict binary outcomes using exchange-trading, see `Prediction marker
+    <https://en.wikipedia.org/wiki/Prediction_market>`_
 
 Definition imports
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -108,10 +112,12 @@ One of the central features of the AWDE Strategy Tournament is the prediction ma
 not only good play at the specific games in question but also good calibration about one's own
 abilities compared to others. The way the market works is as follows:
 
+The market consists of *options* which have the name of a player on them and can be owned by any
+player, regardless of the name they have. When a game is finished, the options with the names of
+players that got a victory condition pay out 100 points to their owners.
+
 Each tournament has an OPTIONS_PER_PLAYER value that determines the number of options that are
-created at the start of a game for each player. At the end of the game, if a player gets a victory
-condition (either single or shared victory) then every one of their options pays out 100 points to
-the owners of that option.
+created at the start of a game for each player. 
 
 The intent of this is to have the value of the options as they are traded on an open market equal
 the probability of that player's eventual victory as best understood by every player at the time.
@@ -140,7 +146,8 @@ run::
         sellers = list of owners of this option type sorted by price
         buyers = list of buyers sorted by price for this option type
         for each seller:
-            check the highest buyer price, if it is above the seller's price:
+            check the highest buyer price, if it is above the seller's price and the buyer and
+            seller are different people:
                 the seller sells the option to the buyer at the mean of their prices
                 the buyer is removed from the list of buyers
 
@@ -152,3 +159,41 @@ The last price at which an option was bought is listed in the market for public 
 
 In the future, it may be useful to include the ability to hold a 'short' position on an option (or,
 similarly, having 'negative' options that pay out only if that player does *not* get a victory).
+
+Example
+----------------------------------------------------------------------------------------------------
+Consider a tournament with three players, Alice, Bob, and Charlie, and an OPTIONS_PER_PLAYER of 2.
+At the start of a game, 6 options are created: 2 a-options, 2 b-options, and 2 c-options. An auction
+is run to sell off these options to interested players.
+
+First, an a-option is up for sale.
+
+  1. Alice bids 50, Bob bids 20, and Charlie bids 80.
+  2. The option is sold to Charlie for 50. Then, a b-option is sold in the same way, and a c-option.
+  3. After that, the auction loops back around to sell the second a-option, second b-option, and
+     second c-option.
+
+After the auction,
+
+  - Alice owns 1 a-option and 1 c-option.
+  - Bob owns 2 b-options. 
+  - Charlie owns 1 a-option and 1 c-option.
+
+However, none of them know what options the others own (unless they tell each other).
+
+The game begins; it is a turn-based strategy game and every turn the market updates. Looking at the
+a-option:
+
+  - Alice, an a-option owner, will sell her option for at least 60 and buy another for at most 55.
+  - Bob will buy an a-option for at most 30
+  - Charlie will sell his a-option for at least 70 and buy another for at most 75
+
+So the list of *sellers* is [60, 70] and the list of buyers is [30, 55, 75]
+
+  1. The trade (60, 75) occurs; Alice sells her a-option to Charlie for 68.
+  2. 70 < 55 so no other a-option trades occur.
+
+Now, Alice only owns a c-option and Charlie owns both a-options. If the game were to end at this
+moment with Alice as the only winner, Charlie would get 200 points from his a-options and Alice
+would get 756 points for her victory.
+

@@ -48,10 +48,10 @@
 <tr class="field-odd field"><th class="field-name">Created:</th><td class="field-body"><p class="first">2018-11-28</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Updated:</th><td class="field-body"><p class="first">2018-11-29</p>
+<tr class="field-even field"><th class="field-name">Updated:</th><td class="field-body"><p class="first">2018-11-30</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Version:</th><td class="field-body"><p class="first">0.0</p>
+<tr class="field-odd field"><th class="field-name">Version:</th><td class="field-body"><p class="first">0.0.1</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Authors:</th><td class="field-body"><ul class="first last simple">
@@ -85,6 +85,7 @@ Strategy Tournament.</p>
 <li><a class="reference internal" href="#prediction-market" id="id10">Prediction Market</a><ul>
 <li><a class="reference internal" href="#auction" id="id11">Auction</a></li>
 <li><a class="reference internal" href="#market" id="id12">Market</a></li>
+<li><a class="reference internal" href="#example" id="id13">Example</a></li>
 </ul>
 </li>
 </ul>
@@ -122,6 +123,8 @@ updates after the first tournament is run and this will probably coincide with t
 <dl class="docutils">
 <dt>Vickrey auction</dt>
 <dd>A sealed-bid auction that encourages true preference bidding, see <a class="reference external" href="https://en.wikipedia.org/wiki/Vickrey_auction">Vickery auction</a></dd>
+<dt>Prediction Market</dt>
+<dd>A market to predict binary outcomes using exchange-trading, see <a class="reference external" href="https://en.wikipedia.org/wiki/Prediction_market">Prediction marker</a></dd>
 </dl>
 <div class="section" id="definition-imports">
 <h4><a class="toc-backref" href="#id7">Definition imports</a><a class="headerlink" href="#definition-imports" title="Permalink to this headline">¶</a></h4>
@@ -173,10 +176,11 @@ specification.</p>
 <p>One of the central features of the AWDE Strategy Tournament is the prediction market, which rewards
 not only good play at the specific games in question but also good calibration about one’s own
 abilities compared to others. The way the market works is as follows:</p>
+<p>The market consists of <em>options</em> which have the name of a player on them and can be owned by any
+player, regardless of the name they have. When a game is finished, the options with the names of
+players that got a victory condition pay out 100 points to their owners.</p>
 <p>Each tournament has an OPTIONS_PER_PLAYER value that determines the number of options that are
-created at the start of a game for each player. At the end of the game, if a player gets a victory
-condition (either single or shared victory) then every one of their options pays out 100 points to
-the owners of that option.</p>
+created at the start of a game for each player.</p>
 <p>The intent of this is to have the value of the options as they are traded on an open market equal
 the probability of that player’s eventual victory as best understood by every player at the time.</p>
 <p>This allows winners to double down on their winnings if they are confident, allows losers to get
@@ -200,7 +204,8 @@ run:</p>
     <span class="n">sellers</span> <span class="o">=</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">owners</span> <span class="n">of</span> <span class="n">this</span> <span class="n">option</span> <span class="nb">type</span> <span class="nb">sorted</span> <span class="n">by</span> <span class="n">price</span>
     <span class="n">buyers</span> <span class="o">=</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">buyers</span> <span class="nb">sorted</span> <span class="n">by</span> <span class="n">price</span> <span class="k">for</span> <span class="n">this</span> <span class="n">option</span> <span class="nb">type</span>
     <span class="k">for</span> <span class="n">each</span> <span class="n">seller</span><span class="p">:</span>
-        <span class="n">check</span> <span class="n">the</span> <span class="n">highest</span> <span class="n">buyer</span> <span class="n">price</span><span class="p">,</span> <span class="k">if</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">above</span> <span class="n">the</span> <span class="n">seller</span><span class="s1">&#39;s price:</span>
+        <span class="n">check</span> <span class="n">the</span> <span class="n">highest</span> <span class="n">buyer</span> <span class="n">price</span><span class="p">,</span> <span class="k">if</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">above</span> <span class="n">the</span> <span class="n">seller</span><span class="s1">&#39;s price and the buyer and</span>
+        <span class="n">seller</span> <span class="n">are</span> <span class="n">different</span> <span class="n">people</span><span class="p">:</span>
             <span class="n">the</span> <span class="n">seller</span> <span class="n">sells</span> <span class="n">the</span> <span class="n">option</span> <span class="n">to</span> <span class="n">the</span> <span class="n">buyer</span> <span class="n">at</span> <span class="n">the</span> <span class="n">mean</span> <span class="n">of</span> <span class="n">their</span> <span class="n">prices</span>
             <span class="n">the</span> <span class="n">buyer</span> <span class="ow">is</span> <span class="n">removed</span> <span class="kn">from</span> <span class="nn">the</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">buyers</span>
 </pre></div>
@@ -211,6 +216,49 @@ surplus of each exchange.</p>
 <p>The last price at which an option was bought is listed in the market for public visibility.</p>
 <p>In the future, it may be useful to include the ability to hold a ‘short’ position on an option (or,
 similarly, having ‘negative’ options that pay out only if that player does <em>not</em> get a victory).</p>
+</div>
+<div class="section" id="example">
+<h3><a class="toc-backref" href="#id13">Example</a><a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Consider a tournament with three players, Alice, Bob, and Charlie, and an OPTIONS_PER_PLAYER of 2.
+At the start of a game, 6 options are created: 2 a-options, 2 b-options, and 2 c-options. An auction
+is run to sell off these options to interested players.</p>
+<p>First, an a-option is up for sale.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Alice bids 50, Bob bids 20, and Charlie bids 80.</li>
+<li>The option is sold to Charlie for 50. Then, a b-option is sold in the same way, and a c-option.</li>
+<li>After that, the auction loops back around to sell the second a-option, second b-option, and
+second c-option.</li>
+</ol>
+</div></blockquote>
+<p>After the auction,</p>
+<blockquote>
+<div><ul class="simple">
+<li>Alice owns 1 a-option and 1 c-option.</li>
+<li>Bob owns 2 b-options.</li>
+<li>Charlie owns 1 a-option and 1 c-option.</li>
+</ul>
+</div></blockquote>
+<p>However, none of them know what options the others own (unless they tell each other).</p>
+<p>The game begins; it is a turn-based strategy game and every turn the market updates. Looking at the
+a-option:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Alice, an a-option owner, will sell her option for at least 60 and buy another for at most 55.</li>
+<li>Bob will buy an a-option for at most 30</li>
+<li>Charlie will sell his a-option for at least 70 and buy another for at most 75</li>
+</ul>
+</div></blockquote>
+<p>So the list of <em>sellers</em> is [60, 70] and the list of buyers is [30, 55, 75]</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>The trade (60, 75) occurs; Alice sells her a-option to Charlie for 68.</li>
+<li>70 &lt; 55 so no other a-option trades occur.</li>
+</ol>
+</div></blockquote>
+<p>Now, Alice only owns a c-option and Charlie owns both a-options. If the game were to end at this
+moment with Alice as the only winner, Charlie would get 200 points from his a-options and Alice
+would get 756 points for her victory.</p>
 </div>
 </div>
 </div>
